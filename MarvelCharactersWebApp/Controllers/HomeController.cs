@@ -9,22 +9,28 @@ namespace MarvelCharactersWebApp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly string _baseUrl = "http://gateway.marvel.com/v1/public/comics";
+        private readonly string _baseUrl = "http://gateway.marvel.com/v1/public/characters";
         private readonly string _timestamp = DateTime.Now.ToString("yyyyMMddHHmmssffff");
         private readonly string _publicApiKey = "c73680becadfae11f251241311bf89a8";
         private readonly IConfiguration _config;
+        private readonly HttpClient _httpClient;
 
-        public HomeController(ILogger<HomeController> logger, IConfiguration config)
+        public HomeController(ILogger<HomeController> logger, IConfiguration config, HttpClient httpClient)
         {
             _logger = logger;
             _config = config;
+            _httpClient = httpClient;
         }
 
         public IActionResult Index()
         {
             var url = $"{_baseUrl}?ts={_timestamp}&apikey={_publicApiKey}&hash={GetHash()}";
             Console.WriteLine(url);
+            
+            // 1. Set url property to the client
+            _httpClient.BaseAddress = new Uri(url);
 
+            // 2. Parse JSON, refer to Kanye exercise
 
             return View();
         }
