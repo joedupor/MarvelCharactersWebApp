@@ -1,8 +1,10 @@
 ﻿using MarvelCharactersWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 using System.Diagnostics;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.Json.Nodes;
 
 namespace MarvelCharactersWebApp.Controllers
 {
@@ -25,14 +27,20 @@ namespace MarvelCharactersWebApp.Controllers
         public IActionResult Index()
         {
             var url = $"{_baseUrl}?ts={_timestamp}&apikey={_publicApiKey}&hash={GetHash()}";
-            Console.WriteLine(url);
-            
-            // 1. Set url property to the client
-            _httpClient.BaseAddress = new Uri(url);
+
+
+            // 1. Send request to endpoint (url)
+           var marvelResponse =  _httpClient.GetStringAsync(url).Result;
 
             // 2. Parse JSON, refer to Kanye exercise
+            var marvelObject = JObject.Parse(marvelResponse);
 
-            return View();
+            var instance = new MarvelProperties()
+            {
+                Name = marvelObject["data"]["results"][0]["name"].ToString()
+            };
+
+            return View(instance);
         }
 
         private string GetHash() 

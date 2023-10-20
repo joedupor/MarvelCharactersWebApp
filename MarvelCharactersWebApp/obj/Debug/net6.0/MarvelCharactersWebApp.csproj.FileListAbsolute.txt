@@ -28,3 +28,6 @@ C:\Users\jdupo\Desktop\Repos\MarvelCharactersWebApp\MarvelCharactersWebApp\obj\D
 C:\Users\jdupo\Desktop\Repos\MarvelCharactersWebApp\MarvelCharactersWebApp\obj\Debug\net6.0\MarvelCharactersWebApp.pdb
 C:\Users\jdupo\Desktop\Repos\MarvelCharactersWebApp\MarvelCharactersWebApp\obj\Debug\net6.0\MarvelCharactersWebApp.genruntimeconfig.cache
 C:\Users\jdupo\Desktop\Repos\MarvelCharactersWebApp\MarvelCharactersWebApp\obj\Debug\net6.0\ref\MarvelCharactersWebApp.dll
+C:\Users\jdupo\Desktop\Repos\MarvelCharactersWebApp\MarvelCharactersWebApp\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\jdupo\Desktop\Repos\MarvelCharactersWebApp\MarvelCharactersWebApp\obj\Debug\net6.0\MarvelCharactersWebApp.csproj.AssemblyReference.cache
+C:\Users\jdupo\Desktop\Repos\MarvelCharactersWebApp\MarvelCharactersWebApp\obj\Debug\net6.0\MarvelCharactersWebApp.csproj.CopyComplete

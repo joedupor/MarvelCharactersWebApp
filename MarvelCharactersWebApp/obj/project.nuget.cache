@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "maKKOSBiVxDrgxLXLNAz/HYB3agawmCpGZEv9dDU2sm5RiKKaNMv0vaQ2t/l+5DOOp0zh7nGckhRGubS6PO8JA==",
+  "dgSpecHash": "Mc6y8/CR/w6AfTg7uu+ek5MnL0xATxpcO8lrTQoHB360RPckJlFtKRShuf3LTjMAMOlka2lTuI4pZxXZwDSvBw==",
   "success": true,
   "projectFilePath": "C:\\Users\\jdupo\\Desktop\\Repos\\MarvelCharactersWebApp\\MarvelCharactersWebApp\\MarvelCharactersWebApp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\jdupo\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
