@@ -25,22 +25,38 @@ namespace MarvelCharactersWebApp.Controllers
         }
 
         public IActionResult Index()
-        {
+        {   
+            var marvChars = new List<MarvelEntity>();
+
+            // 0. The endpoint
             var url = $"{_baseUrl}?ts={_timestamp}&apikey={_publicApiKey}&hash={GetHash()}";
+            
 
+            // 1. Send request to endpoint (url) and receive back the response and set it to a variable
+            var marvelResponse = _httpClient.GetStringAsync(url).Result;
 
-            // 1. Send request to endpoint (url)
-           var marvelResponse =  _httpClient.GetStringAsync(url).Result;
+            // 2. Parse it into an object to rid of unnecessary info
+            var marvelObjects = JObject.Parse(marvelResponse);
+                if (marvelObjects == null)
+                return NotFound();
 
-            // 2. Parse JSON, refer to Kanye exercise
-            var marvelObject = JObject.Parse(marvelResponse);
+            var characters = marvelObjects.Values();
 
-            var instance = new MarvelProperties()
+            foreach (var character in marvelObjects["data"]["results"])
             {
-                Name = marvelObject["data"]["results"][0]["name"].ToString()
-            };
+                //3. create instance of the class and set properties using object initializer syntax
+                var instance = new MarvelEntity()
+                {
+                    CharacterName = character["name"].ToString(),
 
-            return View(instance);
+                    CharacterDescription = character["description"].ToString()
+                };
+
+                marvChars.Add(instance);
+            }
+
+            return View(marvChars);
+            
         }
 
         private string GetHash() 

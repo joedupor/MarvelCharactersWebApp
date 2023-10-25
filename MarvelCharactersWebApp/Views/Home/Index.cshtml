@@ -1,14 +1,24 @@
-﻿@model MarvelProperties
+﻿@model List<MarvelEntity>
 
 @{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">MARVEL Characters Web App</h1>
+    <p>Learn about Marvel Characters <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
 <div>
-    @Model.Name
+    <ul>
+    @foreach (var character in Model)
+    {
+        <li>
+            
+            <p>@character.CharacterName</p>
+            <p>@character.CharacterDescription</p>
+            
+        </li>
+    }
+    </ul>
 </div>
