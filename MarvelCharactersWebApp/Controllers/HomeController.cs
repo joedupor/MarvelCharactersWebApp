@@ -36,7 +36,7 @@ namespace MarvelCharactersWebApp.Controllers
             // 1. Send request to endpoint (url) and receive back the response and set it to a variable
             var marvelResponse = _httpClient.GetStringAsync(url).Result;
 
-            // 2. Parse it into an object to rid of unnecessary info
+            // 2. Parse it into an object to format and rid of unnecessary info
             var marvelObjects = JObject.Parse(marvelResponse);
                 if (marvelObjects == null)
                 return NotFound();
@@ -59,7 +59,7 @@ namespace MarvelCharactersWebApp.Controllers
                     CharacterImage = $"{path}.{extension}"
 
 
-            };
+                };
 
                 marvChars.Add(instance);
             }

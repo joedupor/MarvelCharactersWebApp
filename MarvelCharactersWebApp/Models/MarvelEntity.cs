@@ -7,3 +7,5 @@
         public string CharacterImage { get; set; } = string.Empty;
     }
 }
+
+
