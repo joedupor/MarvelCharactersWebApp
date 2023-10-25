@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
+using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json.Nodes;
@@ -45,12 +46,20 @@ namespace MarvelCharactersWebApp.Controllers
             foreach (var character in marvelObjects["data"]["results"])
             {
                 //3. create instance of the class and set properties using object initializer syntax
+
+                var path = character["thumbnail"]["path"];
+                var extension = character["thumbnail"]["extension"];
                 var instance = new MarvelEntity()
+                
                 {
                     CharacterName = character["name"].ToString(),
 
-                    CharacterDescription = character["description"].ToString()
-                };
+                    CharacterDescription = character["description"].ToString(),
+                    
+                    CharacterImage = $"{path}.{extension}"
+
+
+            };
 
                 marvChars.Add(instance);
             }

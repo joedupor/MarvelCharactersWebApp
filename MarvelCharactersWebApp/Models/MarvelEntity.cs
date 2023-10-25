@@ -2,9 +2,8 @@
 {
     public class MarvelEntity
     {
-        public string CharacterName { get; set; }
-        public string CharacterDescription { get; set; }
-
-       // public Image CharacterThumbnail { get; set; }
+        public string CharacterName { get; set; } = string.Empty;
+        public string CharacterDescription { get; set; } = string.Empty;
+        public string CharacterImage { get; set; } = string.Empty;
     }
 }
